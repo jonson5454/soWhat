@@ -1,5 +1,6 @@
 
 import UIKit
+import ProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -34,17 +35,34 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateUIFor(login: true)
         setupTextFieldDelegate()
+        setupBackgroundTap()
     }
     
     //: MARK: IBACTIONS
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
-        
+        if isDataInputedFor(type: "password") {
+            //forgot password
+            print("forgot password is called")
+        } else {
+            ProgressHUD.showError("Email is required")
+        }
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        if isDataInputedFor(type: isLogin ? "login" : "register") {
+            isLogin ? loginUser() : registerUser()
+        } else {
+            ProgressHUD.showError("All Fields are required")
+        }
     }
     
     @IBAction func resendButtonPressed(_ sender: Any) {
+        if isDataInputedFor(type: "register") {
+            //forgot password
+            print("Resend Email is called")
+        } else {
+            ProgressHUD.showError("All Fields are required")
+        }
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
@@ -88,6 +106,52 @@ class LoginViewController: UIViewController {
                 passwordLabelOulets.text = textField.hasText ? "Password" : ""
             default:
                 repeatPasswordLabelOutlet.text = textField.hasText ? "Repeat Password" : ""
+        }
+    }
+    
+    //: MARK: HIDE KEYBOARD
+    private func setupBackgroundTap () {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func backgroundTap() {
+        view.endEditing(false)
+    }
+    
+    //: MARK: HELPER
+    private func isDataInputedFor(type: String) -> Bool {
+        switch type {
+        case "login":
+            return emailTextField.text != "" && passwordTextField.text != ""
+        case "register":
+            return emailTextField.text != "" && passwordTextField.text != "" && repeatPasswordTextField.text != ""
+        default:
+            return emailTextField.text != ""
+        }
+    }
+    
+    //: login user
+    func loginUser () {
+        
+    }
+    
+    //: register user
+    func registerUser() {
+        
+        if passwordTextField.text == repeatPasswordTextField.text {
+            
+            FirebaseUserListner.shared.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!) { error in
+                
+                if error == nil {
+                    ProgressHUD.showSuccess("Verification email sent.")
+                    self.resendButtonOutlet.isHidden = false
+                } else {
+                    ProgressHUD.showError(error!.localizedDescription)
+                }
+            }
+        } else {
+            ProgressHUD.showError("The Passwords don't match")
         }
     }
     

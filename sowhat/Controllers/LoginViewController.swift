@@ -36,13 +36,15 @@ class LoginViewController: UIViewController {
         updateUIFor(login: true)
         setupTextFieldDelegate()
         setupBackgroundTap()
+        
+//        presentAppleSignInPopup()
     }
     
     //: MARK: IBACTIONS
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "password") {
             //forgot password
-            print("forgot password is called")
+            self.resetPassword()
         } else {
             ProgressHUD.showError("Email is required")
         }
@@ -58,8 +60,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func resendButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "register") {
-            //forgot password
-            print("Resend Email is called")
+            resetEmail()
         } else {
             ProgressHUD.showError("All Fields are required")
         }
@@ -134,6 +135,20 @@ class LoginViewController: UIViewController {
     //: login user
     func loginUser () {
         
+        FirebaseUserListner.shared.loginUserWithEmail(email: emailTextField.text!, password: passwordTextField.text!) { error, isEmailVerified in
+            
+            if error == nil {
+                if isEmailVerified {
+                    self.presentAppleSignInPopup()
+                    print("User has been logged in with email: ", User.currentUser?.email)
+                } else {
+                    ProgressHUD.showError("Email is not verified.")
+                    self.resendButtonOutlet.isHidden = false
+                }
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
     }
     
     //: register user
@@ -155,5 +170,54 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //: reset password
+    private func resetPassword() {
+        
+        FirebaseUserListner.shared.resetPasswordFor(email: emailTextField.text!) { error in
+            if error == nil {
+                ProgressHUD.showSuccess("Reset link sent to email.")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
+    }
+    
+    //: reset email
+    private func resetEmail() {
+        
+        FirebaseUserListner.shared.resendVerificationWith(email: emailTextField.text!) { error in
+                
+            if error == nil {
+                ProgressHUD.showSuccess("New verification email sent")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
+    }
+    
+    func goToApp() {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainApp") as! UITabBarController
+        
+        main.modalPresentationStyle = .fullScreen
+        self.present(main, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: APPLE ID VERIFY SCREEN
+    func presentAppleSignInPopup() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "appleSignIn") as! UIViewController
+        
+        storyBoard.modalPresentationStyle = .popover
+        self.present(storyBoard, animated: true, completion: nil)
+    }
+    
+    //: MARK: TEMPORARY NAVIGATION
+//    func temPoraryNavigation() {
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
+//        self.present(nextViewController, animated:true, completion:nil)
+//    }
+
 }
 

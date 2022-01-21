@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var authListener: AuthStateDidChangeListenerHandle?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        autoLogin()
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -50,7 +53,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+    
+    //: MARK: AUTOLOGIN
+    func autoLogin() {
+        authListener = Auth.auth().addStateDidChangeListener({ auth, user in
+            
+            Auth.auth().removeStateDidChangeListener(self.authListener!)
+            
+            if user != nil && userDefaults.object(forKey: kCURRENTUSER) != nil {
+                DispatchQueue.main.async {
+                    self.gotoApp()
+                }
+            }
+        })
+    } 
 
-
+    private func gotoApp() {
+        
+        //: We added withIdentifier: "appleSignIn" to open the apple id sign in view
+        //: for original app add withIdentifier: "mainView" to open login user main app
+        let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainApp") as! UIViewController
+        
+        window?.rootViewController = mainView
+        
+    }
 }
 

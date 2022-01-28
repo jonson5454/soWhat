@@ -124,6 +124,57 @@ class FirebaseUserListner {
         }
     }
     
+    func downloadAllUsersFromFirebase(completion: @escaping (_ allUsers: [User]) -> Void) {
+        
+        var users: [User] = []
+        
+        FirebaseRefrence(.User).limit(to: 500).getDocuments { (querySnapshot, error) in
+            
+            guard let document = querySnapshot?.documents else {
+                print("no documents in all users")
+                return
+            }
+            
+            let allUsers = document.compactMap { (queryDocumentSnapshot) -> User? in
+                return try? queryDocumentSnapshot.data(as: User.self)
+            }
+            
+            for user in allUsers {
+                if User.currentId != user.id {
+                    users.append(user)
+                }
+            }
+            
+            completion(users)
+        }
+    }
+    
+    func downloadUsersFromFirebase(widthIDs: [String], completion: @escaping (_ allUsers: [User]) -> Void) {
+        
+        var count = 0
+        var usersArray: [User] = []
+        
+        for userID in widthIDs {
+            
+            FirebaseRefrence(.User).document(userID).getDocument { (querySnapshot, error) in
+                
+                guard let document = querySnapshot else {
+                    print("no document for user")
+                    return
+                }
+                
+                let user = try? document.data(as: User.self)
+                
+                usersArray.append(user!)
+                count += 1
+                
+                if count == widthIDs.count {
+                    completion(usersArray)
+                }
+            }
+        }
+    }
+    
     //: MARK: REGISTER USER WITH APPLE ID
     //: HERE WE CREATE USER ACCOUNT WITH APPLE ID OR SAVE DATA INSIDE ALREADY CREATED USER COLLECTION
     func registerUserWith(appleID: String, password: String) {

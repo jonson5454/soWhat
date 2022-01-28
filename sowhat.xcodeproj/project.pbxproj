@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0011B682279AA45C0001E833 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B681279AA45C0001E833 /* FileStorage.swift */; };
+		0011B684279ACA330001E833 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B683279ACA330001E833 /* GlobalFunctions.swift */; };
+		0011B686279AE55E0001E833 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B685279AE55E0001E833 /* Extensions.swift */; };
+		0011B688279B43090001E833 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B687279B43090001E833 /* Status.swift */; };
+		0011B68B279B49B00001E833 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68A279B49B00001E833 /* StatusTableViewController.swift */; };
+		0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68D279BCD370001E833 /* UserTableViewCell.swift */; };
+		0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */; };
+		0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B692279C5BA90001E833 /* ProfileTableViewController.swift */; };
 		003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FF9277990F20034A505 /* AppDelegate.swift */; };
 		003B1FFC277990F20034A505 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FFB277990F20034A505 /* SceneDelegate.swift */; };
 		003B1FFE277990F20034A505 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FFD277990F20034A505 /* LoginViewController.swift */; };
@@ -14,6 +22,10 @@
 		003B2006277990F40034A505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003B2005277990F40034A505 /* Assets.xcassets */; };
 		003B2009277990F40034A505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003B2007277990F40034A505 /* LaunchScreen.storyboard */; };
 		003B201327799B6B0034A505 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 003B201227799B6B0034A505 /* GoogleService-Info.plist */; };
+		0059748F27A114FF007C81D9 /* RecentChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059748E27A114FF007C81D9 /* RecentChat.swift */; };
+		0059749627A138D5007C81D9 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059749527A138D5007C81D9 /* RecentTableViewCell.swift */; };
+		0059749827A3C8A9007C81D9 /* StartChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059749727A3C8A9007C81D9 /* StartChat.swift */; };
+		0059749A27A402F0007C81D9 /* FirebaseRecentListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059749927A402F0007C81D9 /* FirebaseRecentListner.swift */; };
 		006C3BD9277C3D000035E20F /* FCollectionRefrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C3BD8277C3D000035E20F /* FCollectionRefrence.swift */; };
 		006C3BDB277C45080035E20F /* FirebaseUserListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C3BDA277C45080035E20F /* FirebaseUserListner.swift */; };
 		007533EF277B372D00873ADE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007533EE277B372D00873ADE /* User.swift */; };
@@ -32,6 +44,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0011B681279AA45C0001E833 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		0011B683279ACA330001E833 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		0011B685279AE55E0001E833 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0011B687279B43090001E833 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		0011B68A279B49B00001E833 /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		0011B68D279BCD370001E833 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		0011B692279C5BA90001E833 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		003B1FF6277990F20034A505 /* sowhat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sowhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003B1FF9277990F20034A505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		003B1FFB277990F20034A505 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +61,10 @@
 		003B2008277990F40034A505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		003B200A277990F40034A505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003B201227799B6B0034A505 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0059748E27A114FF007C81D9 /* RecentChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChat.swift; sourceTree = "<group>"; };
+		0059749527A138D5007C81D9 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
+		0059749727A3C8A9007C81D9 /* StartChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChat.swift; sourceTree = "<group>"; };
+		0059749927A402F0007C81D9 /* FirebaseRecentListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRecentListner.swift; sourceTree = "<group>"; };
 		006C3BD8277C3D000035E20F /* FCollectionRefrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionRefrence.swift; sourceTree = "<group>"; };
 		006C3BDA277C45080035E20F /* FirebaseUserListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserListner.swift; sourceTree = "<group>"; };
 		007533EE277B372D00873ADE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -73,6 +97,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0011B689279B49910001E833 /* StatusTable */ = {
+			isa = PBXGroup;
+			children = (
+				0011B68A279B49B00001E833 /* StatusTableViewController.swift */,
+			);
+			path = StatusTable;
+			sourceTree = "<group>";
+		};
+		0011B68C279BCD090001E833 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		0011B691279C5B960001E833 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0011B692279C5BA90001E833 /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		003B1FED277990F20034A505 = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +148,10 @@
 				00D7D44E278C13D600910597 /* Extensions */,
 				003B1FF9277990F20034A505 /* AppDelegate.swift */,
 				003B1FFB277990F20034A505 /* SceneDelegate.swift */,
+				0059749027A13284007C81D9 /* CustomCells */,
 				00804F0927841EDC004BDE6D /* Controllers */,
 				006C3BD7277C3CEA0035E20F /* FirebaseHelpers */,
-				006C3BD6277C3C560035E20F /* Constants */,
+				006C3BD6277C3C560035E20F /* Helpers */,
 				007533ED277B371000873ADE /* Model */,
 				003B1FFF277990F20034A505 /* Main.storyboard */,
 				003B2005277990F40034A505 /* Assets.xcassets */,
@@ -113,12 +162,32 @@
 			path = sowhat;
 			sourceTree = "<group>";
 		};
-		006C3BD6277C3C560035E20F /* Constants */ = {
+		0059749027A13284007C81D9 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				0011B68D279BCD370001E833 /* UserTableViewCell.swift */,
+				0059749527A138D5007C81D9 /* RecentTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		0059749227A132D5007C81D9 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				003B1FFD277990F20034A505 /* LoginViewController.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		006C3BD6277C3C560035E20F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				007533F0277B3A4F00873ADE /* Constants.swift */,
+				0011B683279ACA330001E833 /* GlobalFunctions.swift */,
+				0011B685279AE55E0001E833 /* Extensions.swift */,
+				0059749727A3C8A9007C81D9 /* StartChat.swift */,
 			);
-			path = Constants;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		006C3BD7277C3CEA0035E20F /* FirebaseHelpers */ = {
@@ -126,6 +195,8 @@
 			children = (
 				006C3BD8277C3D000035E20F /* FCollectionRefrence.swift */,
 				006C3BDA277C45080035E20F /* FirebaseUserListner.swift */,
+				0011B681279AA45C0001E833 /* FileStorage.swift */,
+				0059749927A402F0007C81D9 /* FirebaseRecentListner.swift */,
 			);
 			path = FirebaseHelpers;
 			sourceTree = "<group>";
@@ -134,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				007533EE277B372D00873ADE /* User.swift */,
+				0011B687279B43090001E833 /* Status.swift */,
+				0059748E27A114FF007C81D9 /* RecentChat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,9 +214,11 @@
 		00804F0927841EDC004BDE6D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0011B691279C5B960001E833 /* Profile */,
+				0011B68C279BCD090001E833 /* Users */,
 				00CBF33C279946D2004B6564 /* Settings */,
 				00D7D451278C241900910597 /* AppleSignIn */,
-				003B1FFD277990F20034A505 /* LoginViewController.swift */,
+				0059749227A132D5007C81D9 /* LoginViews */,
 				00804F0A27841F0E004BDE6D /* EventViewController.swift */,
 			);
 			path = Controllers;
@@ -169,6 +244,7 @@
 		00CBF33C279946D2004B6564 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0011B689279B49910001E833 /* StatusTable */,
 				00CBF33F27998C26004B6564 /* EditProfile */,
 				00CBF33D279946F1004B6564 /* SettingsTableViewController.swift */,
 			);
@@ -344,17 +420,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0059748F27A114FF007C81D9 /* RecentChat.swift in Sources */,
 				00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */,
 				006C3BD9277C3D000035E20F /* FCollectionRefrence.swift in Sources */,
+				0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */,
 				008B40BE278EE35B00539942 /* OTPUIView.swift in Sources */,
+				0059749A27A402F0007C81D9 /* FirebaseRecentListner.swift in Sources */,
 				007533F1277B3A4F00873ADE /* Constants.swift in Sources */,
 				007533EF277B372D00873ADE /* User.swift in Sources */,
+				0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */,
+				0059749627A138D5007C81D9 /* RecentTableViewCell.swift in Sources */,
 				00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */,
 				00D7D450278C13FC00910597 /* UIView+Extension.swift in Sources */,
+				0011B686279AE55E0001E833 /* Extensions.swift in Sources */,
 				006C3BDB277C45080035E20F /* FirebaseUserListner.swift in Sources */,
+				0059749827A3C8A9007C81D9 /* StartChat.swift in Sources */,
+				0011B68B279B49B00001E833 /* StatusTableViewController.swift in Sources */,
+				0011B684279ACA330001E833 /* GlobalFunctions.swift in Sources */,
 				003B1FFE277990F20034A505 /* LoginViewController.swift in Sources */,
+				0011B688279B43090001E833 /* Status.swift in Sources */,
+				0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */,
 				00B30EF027903CD900CCDBA3 /* UITextField+Extension.swift in Sources */,
 				00804F0B27841F0E004BDE6D /* EventViewController.swift in Sources */,
+				0011B682279AA45C0001E833 /* FileStorage.swift in Sources */,
 				00CBF33E279946F1004B6564 /* SettingsTableViewController.swift in Sources */,
 				003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */,
 				00CBF34127998C40004B6564 /* EditProfileTableViewController.swift in Sources */,
@@ -513,6 +601,10 @@
 				DEVELOPMENT_TEAM = QTGH624RDY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sowhat/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "$(PRODUCT_NAME) would like to use your media library";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) would like to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) would like to use your photo library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -547,6 +639,10 @@
 				DEVELOPMENT_TEAM = QTGH624RDY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sowhat/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "$(PRODUCT_NAME) would like to use your media library";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) would like to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) would like to use your photo library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

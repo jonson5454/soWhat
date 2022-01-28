@@ -12,10 +12,13 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    //: MARK: VARS
+    var firstRun: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        firstRunCheck()
         
         FirebaseApp.configure()
         
@@ -84,5 +87,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    //: MARK: FIRSTRUN
+    func firstRunCheck() {
+        
+        firstRun = userDefaults.bool(forKey: kFIRSTRUN)
+        
+        if !firstRun! {
+            
+            let status = Status.array.map {$0.rawValue}
+            
+            userDefaults.set(status, forKey: kSTATUS)
+            userDefaults.set(firstRun, forKey: kFIRSTRUN)
+            
+            userDefaults.synchronize()
+        }
+    }
 }
 

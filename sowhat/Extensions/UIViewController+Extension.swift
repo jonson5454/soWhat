@@ -20,8 +20,5 @@ extension UIViewController {
     }
     
     //: MARK: WHEN KEYBOARD APPEARS ADD EXTRA HEIGHT AND REMOVE HEIGHT
-    
-    
-    
-    
+   
 }

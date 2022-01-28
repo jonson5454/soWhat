@@ -139,7 +139,7 @@ class LoginViewController: UIViewController {
             
             if error == nil {
                 if isEmailVerified {
-                    self.presentAppleSignInPopup()
+                    self.goToApp()
                     print("User has been logged in with email: ", User.currentUser?.email)
                 } else {
                     ProgressHUD.showError("Email is not verified.")

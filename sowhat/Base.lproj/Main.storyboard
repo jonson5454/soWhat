@@ -947,7 +947,7 @@
         <!--Chats-->
         <scene sceneID="2zP-bt-01E">
             <objects>
-                <tableViewController id="KH9-tO-dEv" sceneMemberID="viewController">
+                <tableViewController id="KH9-tO-dEv" customClass="ChatsTableViewController" customModule="sowhat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="alJ-hI-Xb2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

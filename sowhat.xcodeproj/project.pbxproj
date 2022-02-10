@@ -35,6 +35,7 @@
 		008B40BE278EE35B00539942 /* OTPUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008B40BD278EE35B00539942 /* OTPUIView.swift */; };
 		008B40C0278EE39000539942 /* OTPUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008B40BF278EE39000539942 /* OTPUIView.xib */; };
 		00B30EF027903CD900CCDBA3 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B30EEF27903CD900CCDBA3 /* UITextField+Extension.swift */; };
+		00C0D54727B5197A009ED7FB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0D54627B5197A009ED7FB /* ChatViewController.swift */; };
 		00CBF33E279946F1004B6564 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CBF33D279946F1004B6564 /* SettingsTableViewController.swift */; };
 		00CBF34127998C40004B6564 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CBF34027998C40004B6564 /* EditProfileTableViewController.swift */; };
 		00D7D450278C13FC00910597 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D44F278C13FC00910597 /* UIView+Extension.swift */; };
@@ -76,6 +77,7 @@
 		008B40BF278EE39000539942 /* OTPUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPUIView.xib; sourceTree = "<group>"; };
 		00B30EEC279036B300CCDBA3 /* sowhat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sowhat-Bridging-Header.h"; sourceTree = "<group>"; };
 		00B30EEF27903CD900CCDBA3 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		00C0D54627B5197A009ED7FB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		00CBF33D279946F1004B6564 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		00CBF34027998C40004B6564 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		00D7D44F278C13FC00910597 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0011B692279C5BA90001E833 /* ProfileTableViewController.swift */,
+				00C0D54627B5197A009ED7FB /* ChatViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */,
 				00CBF34127998C40004B6564 /* EditProfileTableViewController.swift in Sources */,
 				00D7D456278C337300910597 /* HelperFunctions.swift in Sources */,
+				00C0D54727B5197A009ED7FB /* ChatViewController.swift in Sources */,
 				003B1FFC277990F20034A505 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

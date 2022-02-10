@@ -32,7 +32,7 @@ func timeElapsed(_ date: Date) -> String {
         
         let hours = Int(seconds / (60 * 60))
         
-        let hourText = hours > 1 ? "" : ""
+        let hourText = hours > 1 ? "hours" : "hour"
         
         elapsed = "\(hours) \(hourText)"
     } else {

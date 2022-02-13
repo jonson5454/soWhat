@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,7 +33,6 @@
 		006D3DA027B6503B002F2747 /* MessageCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3D9F27B6503B002F2747 /* MessageCellDelegate.swift */; };
 		006D3DA227B65051002F2747 /* MessageLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA127B65051002F2747 /* MessageLayoutDelegate.swift */; };
 		006D3DA427B65071002F2747 /* MessageDisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA327B65071002F2747 /* MessageDisplayDelegate.swift */; };
-		006D3DA627B65086002F2747 /* InputBarAccessaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA527B65086002F2747 /* InputBarAccessaryView.swift */; };
 		006D3DA827B673D4002F2747 /* MessageKitDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA727B673D4002F2747 /* MessageKitDefaults.swift */; };
 		006D3DAA27B67EF5002F2747 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA927B67EF5002F2747 /* MKMessage.swift */; };
 		006D3DAD27B68BD2002F2747 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DAC27B68BD2002F2747 /* LocalMessage.swift */; };
@@ -50,6 +49,12 @@
 		00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D452278C243500910597 /* AppleSignInViewController.swift */; };
 		00D7D456278C337300910597 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D455278C337300910597 /* HelperFunctions.swift */; };
 		00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D457278D698B00910597 /* UIViewController+Extension.swift */; };
+		63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */; };
+		63AD4BF227B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */; };
+		63AD4BF427B7F92700EC88A6 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */; };
+		63AD4BF627B820F200EC88A6 /* FirebaseMessageListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */; };
+		63AD4BF827B834DB00EC88A6 /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */; };
+		63AD4BFA27B94C4B00EC88A6 /* FirebaseTypingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */; };
 		FED784721BBA9CD19940987A /* Pods_sowhat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A535575FD097F29F44E32DEB /* Pods_sowhat.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +87,6 @@
 		006D3D9F27B6503B002F2747 /* MessageCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellDelegate.swift; sourceTree = "<group>"; };
 		006D3DA127B65051002F2747 /* MessageLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLayoutDelegate.swift; sourceTree = "<group>"; };
 		006D3DA327B65071002F2747 /* MessageDisplayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDisplayDelegate.swift; sourceTree = "<group>"; };
-		006D3DA527B65086002F2747 /* InputBarAccessaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessaryView.swift; sourceTree = "<group>"; };
 		006D3DA727B673D4002F2747 /* MessageKitDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageKitDefaults.swift; sourceTree = "<group>"; };
 		006D3DA927B67EF5002F2747 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
 		006D3DAC27B68BD2002F2747 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessage.swift; sourceTree = "<group>"; };
@@ -101,6 +105,12 @@
 		00D7D455278C337300910597 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		00D7D457278D698B00910597 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		581DDE996AABCF086B42673E /* Pods-sowhat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.release.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.release.xcconfig"; sourceTree = "<group>"; };
+		63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessaryViewDelegate.swift; sourceTree = "<group>"; };
+		63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
+		63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMessageListner.swift; sourceTree = "<group>"; };
+		63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTypingListener.swift; sourceTree = "<group>"; };
 		8B4D429182F65E36A8484B32 /* Pods-sowhat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.debug.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.debug.xcconfig"; sourceTree = "<group>"; };
 		A535575FD097F29F44E32DEB /* Pods_sowhat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sowhat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +238,8 @@
 				006C3BDA277C45080035E20F /* FirebaseUserListner.swift */,
 				0011B681279AA45C0001E833 /* FileStorage.swift */,
 				0059749927A402F0007C81D9 /* FirebaseRecentListner.swift */,
+				63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */,
+				63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */,
 			);
 			path = FirebaseHelpers;
 			sourceTree = "<group>";
@@ -239,7 +251,7 @@
 				006D3D9F27B6503B002F2747 /* MessageCellDelegate.swift */,
 				006D3DA127B65051002F2747 /* MessageLayoutDelegate.swift */,
 				006D3DA327B65071002F2747 /* MessageDisplayDelegate.swift */,
-				006D3DA527B65086002F2747 /* InputBarAccessaryView.swift */,
+				63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */,
 			);
 			path = ChatViewExtensions;
 			sourceTree = "<group>";
@@ -248,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				006D3DAC27B68BD2002F2747 /* LocalMessage.swift */,
+				63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */,
 			);
 			path = RealmMessages;
 			sourceTree = "<group>";
@@ -260,6 +273,8 @@
 				0011B687279B43090001E833 /* Status.swift */,
 				0059748E27A114FF007C81D9 /* RecentChat.swift */,
 				006D3DA927B67EF5002F2747 /* MKMessage.swift */,
+				63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */,
+				63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,7 +399,6 @@
 		003B1FEE277990F20034A505 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
@@ -395,7 +409,7 @@
 				};
 			};
 			buildConfigurationList = 003B1FF1277990F20034A505 /* Build configuration list for PBXProject "sowhat" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -476,36 +490,41 @@
 			files = (
 				006D3DA827B673D4002F2747 /* MessageKitDefaults.swift in Sources */,
 				0059748F27A114FF007C81D9 /* RecentChat.swift in Sources */,
+				63AD4BF627B820F200EC88A6 /* FirebaseMessageListner.swift in Sources */,
 				00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */,
 				006C3BD9277C3D000035E20F /* FCollectionRefrence.swift in Sources */,
 				0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */,
 				006D3DAD27B68BD2002F2747 /* LocalMessage.swift in Sources */,
 				008B40BE278EE35B00539942 /* OTPUIView.swift in Sources */,
+				63AD4BF227B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift in Sources */,
 				006D3DAA27B67EF5002F2747 /* MKMessage.swift in Sources */,
 				0059749A27A402F0007C81D9 /* FirebaseRecentListner.swift in Sources */,
 				007533F1277B3A4F00873ADE /* Constants.swift in Sources */,
 				007533EF277B372D00873ADE /* User.swift in Sources */,
 				0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */,
 				0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */,
+				63AD4BFA27B94C4B00EC88A6 /* FirebaseTypingListener.swift in Sources */,
 				0059749627A138D5007C81D9 /* RecentTableViewCell.swift in Sources */,
 				00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */,
 				00D7D450278C13FC00910597 /* UIView+Extension.swift in Sources */,
 				0011B686279AE55E0001E833 /* Extensions.swift in Sources */,
 				006C3BDB277C45080035E20F /* FirebaseUserListner.swift in Sources */,
 				0059749827A3C8A9007C81D9 /* StartChat.swift in Sources */,
+				63AD4BF827B834DB00EC88A6 /* IncomingMessage.swift in Sources */,
 				0011B68B279B49B00001E833 /* StatusTableViewController.swift in Sources */,
 				0011B684279ACA330001E833 /* GlobalFunctions.swift in Sources */,
 				003B1FFE277990F20034A505 /* LoginViewController.swift in Sources */,
 				006D3D9C27B64FED002F2747 /* MessageDataSource.swift in Sources */,
-				006D3DA627B65086002F2747 /* InputBarAccessaryView.swift in Sources */,
 				006D3DA027B6503B002F2747 /* MessageCellDelegate.swift in Sources */,
 				0011B688279B43090001E833 /* Status.swift in Sources */,
+				63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */,
 				0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */,
 				00B30EF027903CD900CCDBA3 /* UITextField+Extension.swift in Sources */,
 				00804F0B27841F0E004BDE6D /* EventViewController.swift in Sources */,
 				0011B682279AA45C0001E833 /* FileStorage.swift in Sources */,
 				00CBF33E279946F1004B6564 /* SettingsTableViewController.swift in Sources */,
 				003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */,
+				63AD4BF427B7F92700EC88A6 /* OutgoingMessage.swift in Sources */,
 				006D3DA227B65051002F2747 /* MessageLayoutDelegate.swift in Sources */,
 				006D3DA427B65071002F2747 /* MessageDisplayDelegate.swift in Sources */,
 				00CBF34127998C40004B6564 /* EditProfileTableViewController.swift in Sources */,

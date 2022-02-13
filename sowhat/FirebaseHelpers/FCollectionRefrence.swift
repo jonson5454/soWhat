@@ -9,6 +9,8 @@ import FirebaseFirestore
 enum FCollectionRefrence: String {
     case User
     case Recent
+    case Messages
+    case Typing
 }
 
 // Helper function to provide top level folders

@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseStorage
 import ProgressHUD
+import UIKit
+
 
 let storage = Storage.storage()
 
@@ -17,11 +19,8 @@ class FileStorage {
     class func uploadImage(_ image: UIImage, directory: String, completion: @escaping (_ documentLink: String?) -> Void) {
         
         let storageRef = storage.reference(forURL: kFILEREFRENCE).child(directory)
-        
         let imageData = image.jpegData(compressionQuality: 0.6)
-        
         var task: StorageUploadTask!
-        
         
         task = storageRef.putData(imageData!, metadata: nil, completion: { (metadata, error) in
 
@@ -68,8 +67,7 @@ class FileStorage {
             
         } else {
             //download from nib
-            print("Let's get from FB")
-            
+
             if imageUrl != "" {
                 
                 let documentUrl = URL(string: imageUrl)
@@ -94,12 +92,52 @@ class FileStorage {
                         DispatchQueue.main.async {
                             completion(nil)
                         }
-                        
                     }
                 }
             }
+        }
+    }
+    
+    //: MARK: Upload Video
+    class func uploadVideo(_ video: NSData, directory: String, completion: @escaping (_ videoLink: String?) -> Void) {
+        print("upload Video to firebase")
+        
+        let storageRef = storage.reference(forURL: kFILEREFRENCE).child(directory)
+        
+        var task: StorageUploadTask!
+        
+        task = storageRef.putData(video as Data, metadata: nil, completion: { (metaData, error) in
+            
+            task.removeAllObservers()
+            ProgressHUD.dismiss()
+            
+            if error != nil {
+                print("error uploading image \(error?.localizedDescription)")
+                return
+            }
+            
+            storageRef.downloadURL {(url, error) in
+                
+                guard let downloadUrl = url else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(downloadUrl.absoluteString)
+            }
+        })
+        
+        task.observe(StorageTaskStatus.progress) { (snapshot) in
+            
+            let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+            ProgressHUD.show("\(CGFloat(progress))")
             
         }
+    }
+    
+    //: MARK: Download Video
+    class func downloadVideo() {
+        print("download video from firebase")
     }
     
     //: MARK: - Save Locally

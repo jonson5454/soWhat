@@ -52,7 +52,7 @@ class FirebaseMessageListner {
     
     func listenForReadStatusChange(_ documentId: String, collectionId: String, completion: @escaping (_ updatedMessage: LocalMessage) -> Void) {
         
-        FirebaseRefrence(.Messages).document(documentId).collection(collectionId).addSnapshotListener { (querySnapshot, error) in
+        updatedChatListener = FirebaseRefrence(.Messages).document(documentId).collection(collectionId).addSnapshotListener { (querySnapshot, error) in
             
             guard let snapshot = querySnapshot else { return }
             

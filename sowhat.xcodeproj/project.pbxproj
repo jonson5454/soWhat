@@ -49,6 +49,7 @@
 		00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D452278C243500910597 /* AppleSignInViewController.swift */; };
 		00D7D456278C337300910597 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D455278C337300910597 /* HelperFunctions.swift */; };
 		00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D457278D698B00910597 /* UIViewController+Extension.swift */; };
+		00EEB4B027BA58CF00D6C58C /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */; };
 		63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */; };
 		63AD4BF227B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */; };
 		63AD4BF427B7F92700EC88A6 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */; };
@@ -104,6 +105,7 @@
 		00D7D452278C243500910597 /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
 		00D7D455278C337300910597 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		00D7D457278D698B00910597 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
 		581DDE996AABCF086B42673E /* Pods-sowhat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.release.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.release.xcconfig"; sourceTree = "<group>"; };
 		63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessaryViewDelegate.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				006D3DA927B67EF5002F2747 /* MKMessage.swift */,
 				63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */,
 				63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */,
+				00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */,
 				0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */,
 				63AD4BFA27B94C4B00EC88A6 /* FirebaseTypingListener.swift in Sources */,
+				00EEB4B027BA58CF00D6C58C /* PhotoMessage.swift in Sources */,
 				0059749627A138D5007C81D9 /* RecentTableViewCell.swift in Sources */,
 				00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */,
 				00D7D450278C13FC00910597 /* UIView+Extension.swift in Sources */,

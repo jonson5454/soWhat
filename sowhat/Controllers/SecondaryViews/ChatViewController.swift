@@ -270,7 +270,7 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: - Actions
-    func messageSend(text: String?, photo: UIImage?, video: String?, audio: String?, location:String?, audioDuration: Float = 0.0) {
+    func messageSend(text: String?, photo: UIImage?, video: Video?, audio: String?, location:String?, audioDuration: Float = 0.0) {
         
         OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recipientId])
     }
@@ -302,9 +302,9 @@ class ChatViewController: MessagesViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        takePhotoOrVideo.setValue("camera", forKey: "image")
-        shareMedia.setValue("photo.fill", forKey: "image")
-        shareLocation.setValue("mappin.and.ellipse", forKey: "image")
+//        takePhotoOrVideo.setValue("camera", forKey: "image")
+//        shareMedia.setValue("photo.fill", forKey: "image")
+//        shareLocation.setValue("mappin.and.ellipse", forKey: "image")
         
         optionMenu.addAction(takePhotoOrVideo)
         optionMenu.addAction(shareMedia)
@@ -414,16 +414,27 @@ class ChatViewController: MessagesViewController {
 
 extension ChatViewController: GalleryControllerDelegate {
     
-    func galleryController(_ controller: GalleryController, didSelectImages images: [Images]) {
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
         
-        if images.count > 0 {
-            
-            images.first!.resolve { (image) in
-                
-                self.messageSend(text: nil, photo: image, video: nil, audio: nil, location: nil)
-            }
-            
-        }
+        self.messageSend(text: nil, photo: nil, video: video, audio: nil, location: nil)
+        controller.dismiss(animated: true, completion: nil)
     }
     
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+       
+        if images.count > 0 {
+            images.first!.resolve { (image) in
+                self.messageSend(text: nil, photo: image, video: nil, audio: nil, location: nil)
+            }
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

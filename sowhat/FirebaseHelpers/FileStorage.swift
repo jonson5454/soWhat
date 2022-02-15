@@ -138,47 +138,32 @@ class FileStorage {
     //: MARK: Download Video
     class func downloadVideo(videoLink: String, completion: @escaping (_ isReadyToPlay: Bool,_ videoFileName: String) -> Void) {
         print("download video from firebase")
-        let imageFileName = fileNameFrom(fileUrl: imageUrl)
+        let videoUrl = URL(string: videoLink)
+        let videoFileName = fileNameFrom(fileUrl: videoLink) + ".mov"
             
-        if fileExistsAtPath(path: imageFileName) {
-            //get it locally
-            print("we have local image")
+        if fileExistsAtPath(path: videoFileName) {
             
-            if let contentsOfFile = UIImage(contentsOfFile: fileInDocumentsDirectory(fileName: imageFileName)) {
-                completion(contentsOfFile)
-            } else {
-                print("couldn't convert local image")
-                completion(UIImage(named: "avatar"))
-            }
+            completion(true, videoFileName)
             
         } else {
-            //download from nib
+            
+            let downloadQueue =  DispatchQueue(label: "VideoDownloadQueue")
+            
+            downloadQueue.async {
 
-            if imageUrl != "" {
+                let data = NSData(contentsOf: videoUrl!)
                 
-                let documentUrl = URL(string: imageUrl)
-                
-                let downloadQueue =  DispatchQueue(label: "imageDownloadQueue")
-                
-                downloadQueue.async {
-
-                    let data = NSData(contentsOf: documentUrl!)
+                if data != nil {
                     
-                    if data != nil {
-                        
-                        //save locally
-                        FileStorage.saveFileLocally(fileData: data!, fileName: imageFileName)
-                        
-                        DispatchQueue.main.async {
-                            completion(UIImage(data: data! as Data))
-                        }
-                        
-                    } else {
-                        print("No document in database")
-                        DispatchQueue.main.async {
-                            completion(nil)
-                        }
+                    //save locally
+                    FileStorage.saveFileLocally(fileData: data!, fileName: videoFileName)
+                    
+                    DispatchQueue.main.async {
+                        completion(true, videoFileName)
                     }
+                    
+                } else {
+                    print("No document in database")
                 }
             }
         }

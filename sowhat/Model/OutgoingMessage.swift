@@ -37,6 +37,10 @@ class OutgoingMessage {
             sendVideoMessage(message: message, video: video!, memberIds: memberIds)
         }
         
+        if location != nil {
+            print("send location \(LocationManager.shared.currentLocation)")
+        }
+        
         //TODO: send push notification
         FirebaseRecentListner.shared.updateRecents(chatRoomId: chatId, lastMessage: message.message)
     }

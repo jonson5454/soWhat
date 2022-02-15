@@ -15,6 +15,7 @@
 		0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68D279BCD370001E833 /* UserTableViewCell.swift */; };
 		0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */; };
 		0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B692279C5BA90001E833 /* ProfileTableViewController.swift */; };
+		002BF53427BBA82400AAFCAE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002BF53327BBA82400AAFCAE /* LocationManager.swift */; };
 		0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030493F27B113E3006070D4 /* ChatsTableViewController.swift */; };
 		003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FF9277990F20034A505 /* AppDelegate.swift */; };
 		003B1FFC277990F20034A505 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FFB277990F20034A505 /* SceneDelegate.swift */; };
@@ -69,6 +70,7 @@
 		0011B68D279BCD370001E833 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		0011B692279C5BA90001E833 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		002BF53327BBA82400AAFCAE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0030493F27B113E3006070D4 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
 		003B1FF6277990F20034A505 /* sowhat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sowhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003B1FF9277990F20034A505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */,
 				63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */,
 				634BCA4B27BACEC900CE14B7 /* MediaMessages */,
+				002BF53327BBA82400AAFCAE /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				006D3D9C27B64FED002F2747 /* MessageDataSource.swift in Sources */,
 				006D3DA027B6503B002F2747 /* MessageCellDelegate.swift in Sources */,
 				0011B688279B43090001E833 /* Status.swift in Sources */,
+				002BF53427BBA82400AAFCAE /* LocationManager.swift in Sources */,
 				63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */,
 				634BCA4D27BACF0B00CE14B7 /* VideoMessage.swift in Sources */,
 				0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */,
@@ -702,6 +706,8 @@
 				INFOPLIST_FILE = sowhat/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "sowhat would like to use your media library";
 				INFOPLIST_KEY_NSCameraUsageDescription = "sowhat would like to use your camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME) would like to use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) would like to use your location";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "sowhat would like to use your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "sowhat would like to access your photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -740,6 +746,8 @@
 				INFOPLIST_FILE = sowhat/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "sowhat would like to use your media library";
 				INFOPLIST_KEY_NSCameraUsageDescription = "sowhat would like to use your camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME) would like to use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(PRODUCT_NAME) would like to use your location";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "sowhat would like to use your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "sowhat would like to access your photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

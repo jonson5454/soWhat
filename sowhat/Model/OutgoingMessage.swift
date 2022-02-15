@@ -38,7 +38,7 @@ class OutgoingMessage {
         }
         
         if location != nil {
-            print("send location \(LocationManager.shared.currentLocation)")
+            sendLocationMessage(message: message, memberIds: memberIds)
         }
         
         //TODO: send push notification
@@ -123,5 +123,17 @@ func sendVideoMessage(message: LocalMessage, video: Video, memberIds: [String]) 
             }
         }
     }
+}
+
+//Send Location Message
+func sendLocationMessage(message: LocalMessage, memberIds: [String]) {
     
+    let currentLocation = LocationManager.shared.currentLocation
+    
+    message.message = "Location Message"
+    message.type = kLOCATION
+    message.latitude = currentLocation?.latitude ?? 0.0
+    message.longitude = currentLocation?.longitude ?? 0.0
+    
+    OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
 }

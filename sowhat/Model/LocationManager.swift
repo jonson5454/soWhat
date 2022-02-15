@@ -56,9 +56,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-//        if manager.authorizationStatus == .notDetermined {
-//            
-//        }
-        
+        if #available(iOS 14.0, *) {
+            if manager.authorizationStatus == .notDetermined {
+                self.locationManager!.requestWhenInUseAuthorization()
+            }
+        }
     }
 }

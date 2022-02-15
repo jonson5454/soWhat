@@ -49,4 +49,19 @@ extension ChatViewController: MessageCellDelegate {
         }
     } //: END TAP IMAGE
     
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        
+        if let indexPath = messagesCollectionView.indexPath(for: cell) {
+            
+            let mkMessage = mkMessages[indexPath.section]
+            
+            if mkMessage.locationItem != nil {
+                
+                let mapView = MapViewController()
+                mapView.location = mkMessage.locationItem?.location
+                
+                navigationController?.pushViewController(mapView, animated: true)
+            }
+        }
+    }
 }

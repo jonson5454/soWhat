@@ -136,8 +136,52 @@ class FileStorage {
     }
     
     //: MARK: Download Video
-    class func downloadVideo() {
+    class func downloadVideo(videoLink: String, completion: @escaping (_ isReadyToPlay: Bool,_ videoFileName: String) -> Void) {
         print("download video from firebase")
+        let imageFileName = fileNameFrom(fileUrl: imageUrl)
+            
+        if fileExistsAtPath(path: imageFileName) {
+            //get it locally
+            print("we have local image")
+            
+            if let contentsOfFile = UIImage(contentsOfFile: fileInDocumentsDirectory(fileName: imageFileName)) {
+                completion(contentsOfFile)
+            } else {
+                print("couldn't convert local image")
+                completion(UIImage(named: "avatar"))
+            }
+            
+        } else {
+            //download from nib
+
+            if imageUrl != "" {
+                
+                let documentUrl = URL(string: imageUrl)
+                
+                let downloadQueue =  DispatchQueue(label: "imageDownloadQueue")
+                
+                downloadQueue.async {
+
+                    let data = NSData(contentsOf: documentUrl!)
+                    
+                    if data != nil {
+                        
+                        //save locally
+                        FileStorage.saveFileLocally(fileData: data!, fileName: imageFileName)
+                        
+                        DispatchQueue.main.async {
+                            completion(UIImage(data: data! as Data))
+                        }
+                        
+                    } else {
+                        print("No document in database")
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     //: MARK: - Save Locally

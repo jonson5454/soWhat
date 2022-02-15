@@ -36,6 +36,15 @@ class IncomingMessage {
             }
         }
         
+        if localMessage.type == kVIDEO {
+            
+            FileStorage.downloadImage(imageUrl: localMessage.pictureUrl) { (thumbNail) in
+                
+                FileStorage.downloadVideo()
+            }
+            
+        }
+        
         return mkMessage
     }
     

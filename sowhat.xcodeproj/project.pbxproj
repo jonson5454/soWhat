@@ -50,6 +50,7 @@
 		00D7D456278C337300910597 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D455278C337300910597 /* HelperFunctions.swift */; };
 		00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D457278D698B00910597 /* UIViewController+Extension.swift */; };
 		00EEB4B027BA58CF00D6C58C /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */; };
+		634BCA4D27BACF0B00CE14B7 /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */; };
 		63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */; };
 		63AD4BF227B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */; };
 		63AD4BF427B7F92700EC88A6 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */; };
@@ -107,6 +108,7 @@
 		00D7D457278D698B00910597 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
 		581DDE996AABCF086B42673E /* Pods-sowhat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.release.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.release.xcconfig"; sourceTree = "<group>"; };
+		634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		63AD4BF127B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessaryViewDelegate.swift; sourceTree = "<group>"; };
 		63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
@@ -277,7 +279,7 @@
 				006D3DA927B67EF5002F2747 /* MKMessage.swift */,
 				63AD4BF327B7F92700EC88A6 /* OutgoingMessage.swift */,
 				63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */,
-				00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */,
+				634BCA4B27BACEC900CE14B7 /* MediaMessages */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +366,15 @@
 				581DDE996AABCF086B42673E /* Pods-sowhat.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		634BCA4B27BACEC900CE14B7 /* MediaMessages */ = {
+			isa = PBXGroup;
+			children = (
+				00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */,
+				634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */,
+			);
+			path = MediaMessages;
 			sourceTree = "<group>";
 		};
 		FDA5EDE6081A4D43FAB07369 /* Frameworks */ = {
@@ -522,6 +533,7 @@
 				006D3DA027B6503B002F2747 /* MessageCellDelegate.swift in Sources */,
 				0011B688279B43090001E833 /* Status.swift in Sources */,
 				63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */,
+				634BCA4D27BACF0B00CE14B7 /* VideoMessage.swift in Sources */,
 				0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */,
 				00B30EF027903CD900CCDBA3 /* UITextField+Extension.swift in Sources */,
 				00804F0B27841F0E004BDE6D /* EventViewController.swift in Sources */,

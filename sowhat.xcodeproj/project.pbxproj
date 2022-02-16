@@ -64,6 +64,8 @@
 		63AD4BF627B820F200EC88A6 /* FirebaseMessageListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */; };
 		63AD4BF827B834DB00EC88A6 /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */; };
 		63AD4BFA27B94C4B00EC88A6 /* FirebaseTypingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */; };
+		63DAAD4F27BD796400DF80C1 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAD4E27BD796400DF80C1 /* PushNotificationService.swift */; };
+		63DAAD5127BD7E5100DF80C1 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DAAD5027BD7E5100DF80C1 /* Channel.swift */; };
 		FED784721BBA9CD19940987A /* Pods_sowhat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A535575FD097F29F44E32DEB /* Pods_sowhat.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,9 @@
 		63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMessageListner.swift; sourceTree = "<group>"; };
 		63AD4BF727B834DB00EC88A6 /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTypingListener.swift; sourceTree = "<group>"; };
+		63DAAD4D27BD737D00DF80C1 /* sowhat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sowhat.entitlements; sourceTree = "<group>"; };
+		63DAAD4E27BD796400DF80C1 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
+		63DAAD5027BD7E5100DF80C1 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		8B4D429182F65E36A8484B32 /* Pods-sowhat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.debug.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.debug.xcconfig"; sourceTree = "<group>"; };
 		A535575FD097F29F44E32DEB /* Pods_sowhat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sowhat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,6 +206,7 @@
 		003B1FF8277990F20034A505 /* sowhat */ = {
 			isa = PBXGroup;
 			children = (
+				63DAAD4D27BD737D00DF80C1 /* sowhat.entitlements */,
 				00B30EEA2790365F00CCDBA3 /* Objective-C */,
 				008B40BA278EE24100539942 /* Views */,
 				00D7D454278C335900910597 /* HelperFunctions */,
@@ -259,6 +265,7 @@
 				0059749927A402F0007C81D9 /* FirebaseRecentListner.swift */,
 				63AD4BF527B820F200EC88A6 /* FirebaseMessageListner.swift */,
 				63AD4BF927B94C4B00EC88A6 /* FirebaseTypingListener.swift */,
+				63DAAD4E27BD796400DF80C1 /* PushNotificationService.swift */,
 			);
 			path = FirebaseHelpers;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 				634BCA5227BC3A1F00CE14B7 /* MapAnnotation.swift */,
 				0055FE5A27BD02A100664B95 /* AudioRecorder.swift */,
 				0055FE5E27BD2B1500664B95 /* BasicAudioController.swift */,
+				63DAAD5027BD7E5100DF80C1 /* Channel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,6 +538,7 @@
 				0055FE5B27BD02A100664B95 /* AudioRecorder.swift in Sources */,
 				006C3BD9277C3D000035E20F /* FCollectionRefrence.swift in Sources */,
 				0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */,
+				63DAAD5127BD7E5100DF80C1 /* Channel.swift in Sources */,
 				006D3DAD27B68BD2002F2747 /* LocalMessage.swift in Sources */,
 				008B40BE278EE35B00539942 /* OTPUIView.swift in Sources */,
 				63AD4BF227B7F45F00EC88A6 /* InputBarAccessaryViewDelegate.swift in Sources */,
@@ -545,6 +554,7 @@
 				00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */,
 				00D7D450278C13FC00910597 /* UIView+Extension.swift in Sources */,
 				0011B686279AE55E0001E833 /* Extensions.swift in Sources */,
+				63DAAD4F27BD796400DF80C1 /* PushNotificationService.swift in Sources */,
 				006C3BDB277C45080035E20F /* FirebaseUserListner.swift in Sources */,
 				0059749827A3C8A9007C81D9 /* StartChat.swift in Sources */,
 				63AD4BF827B834DB00EC88A6 /* IncomingMessage.swift in Sources */,
@@ -723,6 +733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = sowhat/sowhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QTGH624RDY;
@@ -765,6 +776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = sowhat/sowhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QTGH624RDY;

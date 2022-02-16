@@ -19,8 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        requestPushNotificationPermission()
         
         firstRunCheck()
+        
+        application.registerForRemoteNotifications()
         
         LocationManager.shared.startUpdating()
         
@@ -89,7 +93,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    //: MARK: FIRSTRUN
+    //MARK: - Remote Notification
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        print("unable to register for remote notification ", error.localizedDescription)
+    }
+    
+    private func requestPushNotificationPermission() {
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (_, _) in
+            
+        }
+    }
+    
+    private func updateUserPushId(newPushId: String) {
+        
+        if var user = User.currentUser {
+            user.pushId = newPushId
+            saveUserLocally(user)
+            FirebaseUserListner.shared.updateUserInFirebase(user)
+        }
+    }
+    
+    // MARK: - FIRSTRUN
     func firstRunCheck() {
         
         firstRun = userDefaults.bool(forKey: kFIRSTRUN)
@@ -106,3 +141,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        completionHandler()
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
+        print("...... User push token is ", fcmToken)
+        updateUserPushId(newPushId: fcmToken)
+    }
+}

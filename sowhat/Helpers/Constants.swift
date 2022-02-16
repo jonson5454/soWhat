@@ -9,6 +9,7 @@ import Foundation
 
 public let userDefaults = UserDefaults.standard
 public let kFILEREFRENCE = "gs://sowhat-ed64e.appspot.com"
+public let kSERVERKEY = ""
 
 public let kNUMBEROFMESSAGES = 12
 

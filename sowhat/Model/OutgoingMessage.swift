@@ -47,6 +47,8 @@ class OutgoingMessage {
         }
         
         //TODO: send push notification
+        PushNotificationService.shared.sendPushNotificationTo(userIds: removeCurrentUserFrom(userIds: memberIds), body: message.message, chatRoomId: chatId)
+        
         FirebaseRecentListner.shared.updateRecents(chatRoomId: chatId, lastMessage: message.message)
     }
  

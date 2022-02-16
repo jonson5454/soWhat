@@ -38,7 +38,12 @@ class OutgoingMessage {
         }
         
         if location != nil {
+            print("send location ", LocationManager.shared.currentLocation)
             sendLocationMessage(message: message, memberIds: memberIds)
+        }
+        
+        if audio != nil {
+            sendAudioMessage(message: message, audioFileName: audio!, audioDuration: audioDuration, memberIds: memberIds)
         }
         
         //TODO: send push notification
@@ -136,4 +141,24 @@ func sendLocationMessage(message: LocalMessage, memberIds: [String]) {
     message.longitude = currentLocation?.longitude ?? 0.0
     
     OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
+}
+
+func sendAudioMessage(message: LocalMessage, audioFileName: String, audioDuration: Float, memberIds: [String]) {
+    
+    message.message = "Audio Message"
+    message.type = kAUDIO
+    
+    let fileDirectory = "MediaMessages/Audio/" + "\(message.chatRoomId)/" + "_\(audioFileName)" + ".m4a"
+    
+    FileStorage.uploadAudio(audioFileName, directory: fileDirectory) { audioLink in
+        
+        if audioLink != nil {
+
+            message.audioUrl = audioLink ?? ""
+            message.audioDuration = Double(audioDuration)
+            
+            OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
+            
+        }
+    }
 }

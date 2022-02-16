@@ -29,18 +29,19 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             locationManager!.delegate = self
             locationManager!.desiredAccuracy = kCLLocationAccuracyBest
             locationManager!.requestWhenInUseAuthorization()
+        } else {
+            print("we have location manager")
         }
     }
     
     func startUpdating() {
-        
         locationManager!.startUpdatingLocation()
     }
     
     func stopUpdating() {
         
         if locationManager != nil {
-            locationManager?.stopUpdatingLocation()
+            locationManager!.stopUpdatingLocation()
         }
     }
     

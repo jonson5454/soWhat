@@ -17,6 +17,7 @@
 		0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B692279C5BA90001E833 /* ProfileTableViewController.swift */; };
 		002BF53427BBA82400AAFCAE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002BF53327BBA82400AAFCAE /* LocationManager.swift */; };
 		0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030493F27B113E3006070D4 /* ChatsTableViewController.swift */; };
+		00377B0227BFAB9F00C27C19 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00377B0127BFAB9F00C27C19 /* ContactsManager.swift */; };
 		003B1FFA277990F20034A505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FF9277990F20034A505 /* AppDelegate.swift */; };
 		003B1FFC277990F20034A505 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FFB277990F20034A505 /* SceneDelegate.swift */; };
 		003B1FFE277990F20034A505 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B1FFD277990F20034A505 /* LoginViewController.swift */; };
@@ -80,6 +81,7 @@
 		0011B692279C5BA90001E833 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		002BF53327BBA82400AAFCAE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0030493F27B113E3006070D4 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
+		00377B0127BFAB9F00C27C19 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		003B1FF6277990F20034A505 /* sowhat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sowhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003B1FF9277990F20034A505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		003B1FFB277990F20034A505 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,14 @@
 			path = Chats;
 			sourceTree = "<group>";
 		};
+		00377B0027BFAB6400C27C19 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				00377B0127BFAB9F00C27C19 /* ContactsManager.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 		003B1FED277990F20034A505 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 		003B1FF8277990F20034A505 /* sowhat */ = {
 			isa = PBXGroup;
 			children = (
+				00377B0027BFAB6400C27C19 /* Contacts */,
 				63DAAD4D27BD737D00DF80C1 /* sowhat.entitlements */,
 				00B30EEA2790365F00CCDBA3 /* Objective-C */,
 				008B40BA278EE24100539942 /* Views */,
@@ -562,6 +573,7 @@
 				0011B684279ACA330001E833 /* GlobalFunctions.swift in Sources */,
 				003B1FFE277990F20034A505 /* LoginViewController.swift in Sources */,
 				006D3D9C27B64FED002F2747 /* MessageDataSource.swift in Sources */,
+				00377B0227BFAB9F00C27C19 /* ContactsManager.swift in Sources */,
 				006D3DA027B6503B002F2747 /* MessageCellDelegate.swift in Sources */,
 				0011B688279B43090001E833 /* Status.swift in Sources */,
 				634BCA5327BC3A1F00CE14B7 /* MapAnnotation.swift in Sources */,
@@ -741,6 +753,7 @@
 				INFOPLIST_FILE = sowhat/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "sowhat would like to use your media library";
 				INFOPLIST_KEY_NSCameraUsageDescription = "sowhat would like to use your camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "sowhat would like to use your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "sowhat would like to use your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "sowhat would like to use your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "sowhat would like to use your location";
@@ -784,6 +797,7 @@
 				INFOPLIST_FILE = sowhat/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "sowhat would like to use your media library";
 				INFOPLIST_KEY_NSCameraUsageDescription = "sowhat would like to use your camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "sowhat would like to use your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "sowhat would like to use your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "sowhat would like to use your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "sowhat would like to use your location";

@@ -12,6 +12,7 @@ struct User: Codable, Equatable {
     var pushId = ""
     var avatarLink = ""
     var status: String
+    var contactListArray: [[String: String]] = [[String: String]]()
     
     //: MARK: FUNCTIONS
     static var currentId: String {

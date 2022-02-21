@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationManager.shared.startUpdating()
         
+        contactsManager.getContacts()
+        
         return true
     }
 

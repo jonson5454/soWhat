@@ -41,6 +41,8 @@
 		006D3DA827B673D4002F2747 /* MessageKitDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA727B673D4002F2747 /* MessageKitDefaults.swift */; };
 		006D3DAA27B67EF5002F2747 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DA927B67EF5002F2747 /* MKMessage.swift */; };
 		006D3DAD27B68BD2002F2747 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D3DAC27B68BD2002F2747 /* LocalMessage.swift */; };
+		0070A49D27C3C242005E2A16 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0070A49C27C3C242005E2A16 /* MediaManager.swift */; };
+		0070A49F27C3C3C8005E2A16 /* AlbumCollectionSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0070A49E27C3C3C8005E2A16 /* AlbumCollectionSectionType.swift */; };
 		007533EF277B372D00873ADE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007533EE277B372D00873ADE /* User.swift */; };
 		007533F1277B3A4F00873ADE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007533F0277B3A4F00873ADE /* Constants.swift */; };
 		00804F0B27841F0E004BDE6D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00804F0A27841F0E004BDE6D /* EventViewController.swift */; };
@@ -107,6 +109,8 @@
 		006D3DA727B673D4002F2747 /* MessageKitDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageKitDefaults.swift; sourceTree = "<group>"; };
 		006D3DA927B67EF5002F2747 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
 		006D3DAC27B68BD2002F2747 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessage.swift; sourceTree = "<group>"; };
+		0070A49C27C3C242005E2A16 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
+		0070A49E27C3C3C8005E2A16 /* AlbumCollectionSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionSectionType.swift; sourceTree = "<group>"; };
 		007533EE277B372D00873ADE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		007533F0277B3A4F00873ADE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00804F0A27841F0E004BDE6D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		003B1FF8277990F20034A505 /* sowhat */ = {
 			isa = PBXGroup;
 			children = (
+				0070A49B27C3C20E005E2A16 /* MediaManager */,
 				00377B0027BFAB6400C27C19 /* Contacts */,
 				63DAAD4D27BD737D00DF80C1 /* sowhat.entitlements */,
 				00B30EEA2790365F00CCDBA3 /* Objective-C */,
@@ -300,6 +305,14 @@
 				63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */,
 			);
 			path = RealmMessages;
+			sourceTree = "<group>";
+		};
+		0070A49B27C3C20E005E2A16 /* MediaManager */ = {
+			isa = PBXGroup;
+			children = (
+				0070A49C27C3C242005E2A16 /* MediaManager.swift */,
+			);
+			path = MediaManager;
 			sourceTree = "<group>";
 		};
 		007533ED277B371000873ADE /* Model */ = {
@@ -413,6 +426,7 @@
 				634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */,
 				634BCA4E27BC2F6900CE14B7 /* LocationMessage.swift */,
 				0055FE5C27BD23E500664B95 /* AudioMessage.swift */,
+				0070A49E27C3C3C8005E2A16 /* AlbumCollectionSectionType.swift */,
 			);
 			path = MediaMessages;
 			sourceTree = "<group>";
@@ -582,6 +596,8 @@
 				63AD4BF027B7ED0000EC88A6 /* RealmManager.swift in Sources */,
 				634BCA4D27BACF0B00CE14B7 /* VideoMessage.swift in Sources */,
 				0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */,
+				0070A49D27C3C242005E2A16 /* MediaManager.swift in Sources */,
+				0070A49F27C3C3C8005E2A16 /* AlbumCollectionSectionType.swift in Sources */,
 				0055FE5D27BD23E500664B95 /* AudioMessage.swift in Sources */,
 				00B30EF027903CD900CCDBA3 /* UITextField+Extension.swift in Sources */,
 				00804F0B27841F0E004BDE6D /* EventViewController.swift in Sources */,

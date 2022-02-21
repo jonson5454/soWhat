@@ -41,7 +41,7 @@ class ChatViewController: MessagesViewController {
     
     open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
     
-    let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser!.userName)
+    let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser?.userName ?? "")
     
     var mkMessages: [MKMessage] = []
     var allLocalMessages: Results<LocalMessage>!

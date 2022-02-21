@@ -94,6 +94,7 @@ final class ContactsManager: NSObject {
             }
             //it's time to convert number into json
             let json = (["name": name, "number": number])
+            jsonArray.append(json)
         }
         
         //now send the contact array to the firebase to update user array
@@ -104,6 +105,7 @@ final class ContactsManager: NSObject {
         
         //Here we save user contacts in FB Collection inside user array file.
         if var user = User.currentUser {
+            print("-----updateUserContacts")
             user.contactListArray = self.jsonArray
             saveUserLocally(user)
             FirebaseUserListner.shared.updateUserInFirebase(user)

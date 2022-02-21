@@ -29,7 +29,7 @@ struct User: Codable, Equatable {
                     let userObject = try decoder.decode(User.self, from: dictionary)
                     return userObject
                 } catch {
-                    print("Error decoding user from user defaults ", error.localizedDescription)
+                    print("Error decoding currentUser from user defaults ", error.localizedDescription)
                 }
             }
         }

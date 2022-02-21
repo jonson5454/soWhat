@@ -14,9 +14,9 @@ class OutgoingMessage {
     
     class func send(chatId: String, text: String?, photo: UIImage?, video: Video?, audio: String?, audioDuration: Float = 0.0, location: String?, memberIds: [String]) {
         
+        let message = LocalMessage()
         let currentUser = User.currentUser!
         
-        let message = LocalMessage()
         message.id = UUID().uuidString
         message.chatRoomId = chatId
         message.senderId = currentUser.id

@@ -164,8 +164,9 @@ class FirebaseUserListner {
                 }
                 
                 let user = try? document.data(as: User.self)
+                guard let user = user else { return }
                 
-                usersArray.append(user!)
+                usersArray.append(user)
                 count += 1
                 
                 if count == widthIDs.count {

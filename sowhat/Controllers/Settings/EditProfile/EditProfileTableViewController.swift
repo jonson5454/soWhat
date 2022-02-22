@@ -97,6 +97,8 @@ class EditProfileTableViewController: UITableViewController {
         Config.initialTab = .imageTab
         
         self.present(gallery, animated: true, completion: nil)
+        
+        
     }
     
     //TODO: UPLOAD IMAGE

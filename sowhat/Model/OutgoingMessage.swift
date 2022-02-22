@@ -38,7 +38,6 @@ class OutgoingMessage {
         }
         
         if location != nil {
-            print("send location ", LocationManager.shared.currentLocation)
             sendLocationMessage(message: message, memberIds: memberIds)
         }
         

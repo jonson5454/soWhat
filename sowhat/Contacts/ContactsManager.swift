@@ -17,6 +17,24 @@ final class ContactsManager: NSObject {
     //MARK: - Contacts Veriables
     var objects = [CNContact]()
     var jsonArray: [[String: String]] = [[String: String]]()
+
+    var isContactsSynch: Bool?
+    
+    //check if contacts list is updated on FB for friends synchronization
+    //save the status inside user defaults
+    func isContactsSynchronized() {
+        
+        DispatchQueue.global().async {
+            
+            self.isContactsSynch = userDefaults.bool(forKey: kCONTACTSLIST)
+            
+            if !self.isContactsSynch! {
+                
+                contactsManager.getContacts()
+
+            }
+        }
+    } //: END isContact
     
     //get contacts
     func getContacts() {
@@ -105,11 +123,21 @@ final class ContactsManager: NSObject {
         
         //Here we save user contacts in FB Collection inside user array file.
         if var user = User.currentUser {
-            print("-----updateUserContacts")
+
             user.contactListArray = self.jsonArray
+
             saveUserLocally(user)
             FirebaseUserListner.shared.updateUserInFirebase(user)
+
+            let isContactsSynch = userDefaults.bool(forKey: kCONTACTSLIST)
+            
+            if !isContactsSynch {
+                
+                userDefaults.set(isContactsSynch, forKey: kCONTACTSLIST)
+                
+                userDefaults.synchronize()
+                
+            }
         }
-        
-    }
+    } //: END UPDATE CONTACT
 }

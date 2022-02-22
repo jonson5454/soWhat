@@ -15,6 +15,7 @@
 		0011B68E279BCD370001E833 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68D279BCD370001E833 /* UserTableViewCell.swift */; };
 		0011B690279BCD500001E833 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */; };
 		0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011B692279C5BA90001E833 /* ProfileTableViewController.swift */; };
+		0028BCA527C5019F001F8211 /* GlobalVeriables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028BCA427C5019F001F8211 /* GlobalVeriables.swift */; };
 		002BF53427BBA82400AAFCAE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002BF53327BBA82400AAFCAE /* LocationManager.swift */; };
 		0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0030493F27B113E3006070D4 /* ChatsTableViewController.swift */; };
 		00377B0227BFAB9F00C27C19 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00377B0127BFAB9F00C27C19 /* ContactsManager.swift */; };
@@ -81,6 +82,7 @@
 		0011B68D279BCD370001E833 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		0011B68F279BCD4F0001E833 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		0011B692279C5BA90001E833 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		0028BCA427C5019F001F8211 /* GlobalVeriables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVeriables.swift; sourceTree = "<group>"; };
 		002BF53327BBA82400AAFCAE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0030493F27B113E3006070D4 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
 		00377B0127BFAB9F00C27C19 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				0011B685279AE55E0001E833 /* Extensions.swift */,
 				0059749727A3C8A9007C81D9 /* StartChat.swift */,
 				006D3DA727B673D4002F2747 /* MessageKitDefaults.swift */,
+				0028BCA427C5019F001F8211 /* GlobalVeriables.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				006D3DAA27B67EF5002F2747 /* MKMessage.swift in Sources */,
 				0059749A27A402F0007C81D9 /* FirebaseRecentListner.swift in Sources */,
 				007533F1277B3A4F00873ADE /* Constants.swift in Sources */,
+				0028BCA527C5019F001F8211 /* GlobalVeriables.swift in Sources */,
 				007533EF277B372D00873ADE /* User.swift in Sources */,
 				0030494027B113E3006070D4 /* ChatsTableViewController.swift in Sources */,
 				0011B693279C5BA90001E833 /* ProfileTableViewController.swift in Sources */,

@@ -8,26 +8,26 @@
 import Foundation
 import Photos
 import UIKit
+import Firebase
+
+let mediaManager = MediaManager()
 
 final class MediaManager: NSObject {
     
-    //MARK: - Vars
-    public static var shared = MediaManager()
-    
-    //MARK: Photos Veriables
+    //MARK: - Vers
     var sections: [AlbumCollectionSectionType] = [.all, .smartAlbums, .userCollections]
     var allPhotos = PHFetchResult<PHAsset>()
     var smartAlbums = PHFetchResult<PHAssetCollection>()
     var userCollections = PHFetchResult<PHAssetCollection>()
-    var profileImage = UIImageView(image: UIImage(named: "DefaultUserImage"))
     
-    //MARK: Methods for Image Processing
+    var uploadedImages: [[String: String]] = [[String:String]]()
+    
     //Send Image
     func sendImages () {
         
         let assets: PHFetchResult<PHAsset>
         assets = allPhotos
-        
+        print("assets.count: \(assets.count)")
         for i in 0..<assets.count {
             
             let asset = assets[i]
@@ -35,7 +35,7 @@ final class MediaManager: NSObject {
             let fileName = PHAssetResource.assetResources(for: asset).first?.originalFilename
             
             self.checkFileType(fileName: fileName!, asset: asset)
-            
+            print("sendImage")
         }
     }
     
@@ -67,61 +67,61 @@ final class MediaManager: NSObject {
     //Upload Video
     func uploadVideo ( fileName: String, localVideoUrl: URL) {
         
-//        self.authNetworking.uploadVideoFile(fileName ,localVideoUrl) { (url, error) in
-//            if let error = error { return print(error.localizedDescription) }
-//            guard let url = url else { return }
-//            print(url.absoluteString)
-//        }
+        uploadVideoFile(fileName ,localVideoUrl) { (url, error) in
+            
+            if let error = error {
+                
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let url = url else { return }
+            print(url.absoluteString)
+        }
     }
     
     
     func uploadImage (fileName: String, asset:PHAsset) {
         
         let imageToSend = self.PHAssetToImage(asset: asset)
-        
-//        self.authNetworking.uploadImagesToStorage(fileName , imageToSend) { (url, error) in
-//            if let error = error { return print(error.localizedDescription) }
-//            guard let url = url else { return }
-//            print(url.absoluteString)
-//        }
-        
-    }
-    
-    //MARK: GET PERMISSIONS
-    func getPermissionIfNecessary(completionHandler: @escaping (Bool) -> Void) {
-        // 1
-        guard PHPhotoLibrary.authorizationStatus() != .authorized else {
-            completionHandler(true)
-            return
-        }
-        // 2
-        PHPhotoLibrary.requestAuthorization { status in
-            completionHandler(status == .authorized ? true : false)
+
+        uploadImagesToStorage(fileName , imageToSend) { (url, error) in
+            
+            if let error = error {
+                
+                print(error.localizedDescription)
+                return
+            }
+            guard let url = url else { return }
+            print(url.absoluteString)
         }
     }
     
-    func fetchAssets() {// 1
+    //Read All Images and videos
+    func fetchAssets() {
+        
         let allPhotosOptions = PHFetchOptions()
+        
         allPhotosOptions.sortDescriptors = [
             NSSortDescriptor(
                 key: "creationDate",
                 ascending: false)
         ]
-        // 2
+        
         allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
-        // 3
+        
         smartAlbums = PHAssetCollection.fetchAssetCollections(
             with: .smartAlbum,
             subtype: .albumRegular,
             options: nil)
-        // 4
+        
         userCollections = PHAssetCollection.fetchAssetCollections(
             with: .album,
             subtype: .albumRegular,
             options: nil)
     }
     
-    //MARK: PHAsset To UIImage
+    //Convert PHAsset To UIImage
     func PHAssetToImage(asset:PHAsset) -> UIImage{
         var image = UIImage()
         
@@ -149,4 +149,104 @@ final class MediaManager: NSObject {
         
     }
     
+    //UPLOAD VIDEO FILE
+    func uploadVideoFile(_ fileName: String, _ url: URL, completion: @escaping (_ imageUrl: URL?, _ error: Error?) -> Void) {
+
+        do{
+            
+            let videoDirectory = "Gallery/" + "\(User.currentId)/" + "_\(fileName)"
+            print("videoDirectory \(videoDirectory)")
+            
+            let data = try Data(contentsOf: url)
+            
+            let ref = storage.reference(forURL: kFILEREFRENCE).child(videoDirectory)
+            
+            _ = ref.putData(data, metadata: nil) { (metadata, error) in
+                
+                if error != nil{
+                    print(error?.localizedDescription ?? "")
+                }
+                print("metadata \(String(describing: metadata))")
+            }
+            
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    //UPLOAD IMAGE METHOD
+    func uploadImagesToStorage(_ fileName: String, _ image: UIImage, completion: @escaping (_ imageUrl: URL?, _ error: Error?) -> Void) {
+        
+        let fileDirectory = "Gallery/" + "_\(User.currentId)/" + "\(fileName)"
+        print("fileDirectory \(fileDirectory)")
+        
+        let storageRef = storage.reference(forURL: kFILEREFRENCE).child(fileDirectory)
+
+        if let uploadData = image.jpegData(compressionQuality: 0.1) {
+            
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                
+                if let error = error {
+                    
+                    completion(nil, error)
+                    return
+                }
+                
+                storageRef.downloadURL { (url, error) in
+                    if let error = error {
+                        
+                        completion(nil, error)
+                        return
+                    }
+                    if let url = url {
+                        
+                        completion(url, nil)
+                        return
+                    }
+                }
+            }
+        }
+    }
+    
+    //Permissions
+    func getPermissionIfNecessary(completionHandler: @escaping (Bool) -> Void) {
+    
+        guard PHPhotoLibrary.authorizationStatus() != .authorized else {
+            completionHandler(true)
+            return
+        }
+    
+        PHPhotoLibrary.requestAuthorization { status in
+            completionHandler(status == .authorized ? true : false)
+        }
+    }
+    
+    func checkAuthorisationStatus() {
+      let status = PHPhotoLibrary.authorizationStatus()
+      switch status {
+      case .authorized:
+        break
+      case .denied, .restricted:
+        break
+      case .notDetermined:
+        PHPhotoLibrary.requestAuthorization { status in
+          switch status {
+          case .authorized:
+
+              print("authorized")
+
+          case .denied, .restricted, .notDetermined:
+            break
+          case .limited:
+              print("limited")
+          @unknown default:
+                      fatalError()
+                  }
+        }
+      case .limited:
+          print("limited")
+      @unknown default:
+              fatalError()
+          }
+    }
 }

@@ -81,3 +81,4 @@ func videoThumbnail(video: URL) -> UIImage {
         return UIImage(named: "photoPlaceholder")!
     }
 }
+

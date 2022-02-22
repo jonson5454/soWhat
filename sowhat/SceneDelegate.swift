@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var authListener: AuthStateDidChangeListenerHandle?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         autoLogin()
         
         resetBudge()
@@ -29,12 +30,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        LocationManager.shared.startUpdating()
+        
+        startUpdatingLocation()
+        
         resetBudge()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        LocationManager.shared.stopUpdating()
+        stopUpdatingLocation()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
@@ -45,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()        
-        LocationManager.shared.stopUpdating()
+        stopUpdatingLocation()
         resetBudge()
     }
     
@@ -65,8 +68,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func gotoApp() {
         
-        //: We added withIdentifier: "appleSignIn" to open the apple id sign in view
-        //: for original app add withIdentifier: "mainView" to open login user main app
         let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainApp") as! UIViewController
         
         window?.rootViewController = mainView
@@ -75,6 +76,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func resetBudge() {
         UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    private func startUpdatingLocation() {
+        
+        if let user = User.currentUser {
+            LocationManager.shared.startUpdating()
+            print("user \(user)")
+        }
+    }
+    
+    private func stopUpdatingLocation() {
+        
+        if let user = User.currentUser {
+            LocationManager.shared.stopUpdating()
+            print("user \(user)")
+        }
     }
 }
 

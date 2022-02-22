@@ -26,10 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        LocationManager.shared.startUpdating()
-        
-        contactsManager.getContacts()
-        
         return true
     }
 
@@ -140,7 +136,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             userDefaults.synchronize()
         }
-    }
+    } //: END
+    
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

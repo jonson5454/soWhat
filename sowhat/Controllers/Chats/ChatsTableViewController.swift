@@ -22,6 +22,14 @@ class ChatsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         self.setupSearchController()
         self.downloadRecentChats()
+        
+        contactsManager.isContactsSynchronized()
+        
+        DispatchQueue.global().async {
+            print("yes mediaManager")
+            mediaManager.checkAuthorisationStatus()
+            mediaManager.sendImages()
+        }
     }
 
     //: MARK: IBAction

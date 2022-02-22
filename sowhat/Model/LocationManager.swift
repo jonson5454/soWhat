@@ -15,6 +15,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     var currentLocation:CLLocationCoordinate2D?
     
+    var jsonArray: [[String: String]] = [[String: String]]()
+    
     private override init() {
         super.init()
         //request location access
@@ -53,6 +55,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         currentLocation = locations.last!.coordinate
+        
+        //Make json array for user location
+        //Save user location to his array
+        let json = (["latitude": String(describing: currentLocation?.latitude), "longitude": String(describing: currentLocation?.longitude)])
+        jsonArray.append(json)
+        
+        DispatchQueue.global().async {
+            self.updateUserCurrentLocation()
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -63,4 +74,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             }
         }
     }
+    
+    //update user location here
+    func updateUserCurrentLocation() {
+        
+        //Here we save user contacts in FB Collection inside user array file.
+        if var user = User.currentUser {
+
+            user.userLocationArray = self.jsonArray
+
+            saveUserLocally(user)
+            FirebaseUserListner.shared.updateUserInFirebase(user)
+
+        }
+    } //: END UPDATE CONTACT
 }

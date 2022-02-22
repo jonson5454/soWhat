@@ -13,6 +13,7 @@ struct User: Codable, Equatable {
     var avatarLink = ""
     var status: String
     var contactListArray: [[String: String]] = [[String: String]]()
+    var userLocationArray: [[String: String]] = [[String: String]]()
     
     //: MARK: FUNCTIONS
     static var currentId: String {

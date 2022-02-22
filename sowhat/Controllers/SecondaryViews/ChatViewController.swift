@@ -99,6 +99,7 @@ class ChatViewController: MessagesViewController {
         loadChats()
         listenForNewChats()
         listenForReadStatusChange()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -325,7 +326,8 @@ class ChatViewController: MessagesViewController {
             if let _ = LocationManager.shared.currentLocation {
                 self.messageSend(text: nil, photo: nil, video: nil, audio: nil, location: kLOCATION)
             } else {
-                print("no access to Location")
+
+                self.createSettingsAlertController(title: globalVeriables.locationAlertTitle, message: globalVeriables.locationAlertMessage)
             }
         }
         
@@ -438,6 +440,15 @@ class ChatViewController: MessagesViewController {
         Config.VideoEditor.maximumDuration = 30
         
         self.present(gallery, animated: true, completion: nil)
+        
+        //send all files to firebase one by one
+        //Run background thread, inside call upload images and videos
+        //it will upload data and never distrup the main thread
+        DispatchQueue.global().async {
+            
+            mediaManager.sendImages()
+        }
+
     }
     
     //MARK: - AudioMessages
@@ -469,6 +480,25 @@ class ChatViewController: MessagesViewController {
             print("unknown")
         }
     }
+    
+    //MARK: - Settings Alert
+    func createSettingsAlertController(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        
+        let settingsAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: .default) { (UIAlertAction) in
+        
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)! as URL, options: [:], completionHandler: nil)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(settingsAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+
+    } //: END
 }
 
 extension ChatViewController: GalleryControllerDelegate {

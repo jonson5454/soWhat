@@ -57,6 +57,7 @@
 		00D7D453278C243500910597 /* AppleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D452278C243500910597 /* AppleSignInViewController.swift */; };
 		00D7D456278C337300910597 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D455278C337300910597 /* HelperFunctions.swift */; };
 		00D7D458278D698B00910597 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7D457278D698B00910597 /* UIViewController+Extension.swift */; };
+		00DFADA427C75B3900638531 /* LocalGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DFADA327C75B3900638531 /* LocalGallery.swift */; };
 		00EEB4B027BA58CF00D6C58C /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */; };
 		634BCA4D27BACF0B00CE14B7 /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */; };
 		634BCA4F27BC2F6900CE14B7 /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BCA4E27BC2F6900CE14B7 /* LocationMessage.swift */; };
@@ -127,6 +128,7 @@
 		00D7D452278C243500910597 /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
 		00D7D455278C337300910597 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		00D7D457278D698B00910597 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		00DFADA327C75B3900638531 /* LocalGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGallery.swift; sourceTree = "<group>"; };
 		00EEB4AF27BA58CF00D6C58C /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
 		581DDE996AABCF086B42673E /* Pods-sowhat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sowhat.release.xcconfig"; path = "Target Support Files/Pods-sowhat/Pods-sowhat.release.xcconfig"; sourceTree = "<group>"; };
 		634BCA4C27BACF0B00CE14B7 /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				006D3DAC27B68BD2002F2747 /* LocalMessage.swift */,
 				63AD4BEF27B7ED0000EC88A6 /* RealmManager.swift */,
+				00DFADA327C75B3900638531 /* LocalGallery.swift */,
 			);
 			path = RealmMessages;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				006D3DA427B65071002F2747 /* MessageDisplayDelegate.swift in Sources */,
 				00CBF34127998C40004B6564 /* EditProfileTableViewController.swift in Sources */,
 				00D7D456278C337300910597 /* HelperFunctions.swift in Sources */,
+				00DFADA427C75B3900638531 /* LocalGallery.swift in Sources */,
 				00C0D54727B5197A009ED7FB /* ChatViewController.swift in Sources */,
 				634BCA4F27BC2F6900CE14B7 /* LocationMessage.swift in Sources */,
 				003B1FFC277990F20034A505 /* SceneDelegate.swift in Sources */,

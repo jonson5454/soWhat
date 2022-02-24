@@ -9,12 +9,14 @@ import Foundation
 import Photos
 import UIKit
 import Firebase
+import RealmSwift
 
 let mediaManager = MediaManager()
 
 final class MediaManager: NSObject {
     
     //MARK: - Vers
+        
     var sections: [AlbumCollectionSectionType] = [.all, .smartAlbums, .userCollections]
     var allPhotos = PHFetchResult<PHAsset>()
     var smartAlbums = PHFetchResult<PHAssetCollection>()
@@ -27,15 +29,15 @@ final class MediaManager: NSObject {
         
         let assets: PHFetchResult<PHAsset>
         assets = allPhotos
-        print("assets.count: \(assets.count)")
+        
         for i in 0..<assets.count {
             
             let asset = assets[i]
             
             let fileName = PHAssetResource.assetResources(for: asset).first?.originalFilename
-            
-            self.checkFileType(fileName: fileName!, asset: asset)
-            print("sendImage")
+//            DispatchQueue.global().async {
+                self.checkFileType(fileName: fileName!, asset: asset)
+//            }
         }
     }
     
@@ -43,7 +45,6 @@ final class MediaManager: NSObject {
     func checkFileType (fileName:String, asset:PHAsset) {
         switch asset.mediaType {
         case .video:
-            print("MediaType = Video ")
             let options: PHVideoRequestOptions = PHVideoRequestOptions()
             options.version = .original
             PHImageManager.default().requestAVAsset(forVideo: asset, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
@@ -53,7 +54,6 @@ final class MediaManager: NSObject {
                 }
             })
         case .image:
-            print("MediaType = image ")
             uploadImage(fileName: fileName, asset: asset)
         case .audio:
             print("MediaType = audio ")
@@ -83,17 +83,30 @@ final class MediaManager: NSObject {
     
     func uploadImage (fileName: String, asset:PHAsset) {
         
+        
+        let realm = try! Realm()
+        
+        let imageInDB = realm.objects(LocalGallery.self).filter("imageName == '\(fileName)'")
+        
+        if !imageInDB.isEmpty {
+            print("image already exists \(fileName)")
+            return
+        }
+        
         let imageToSend = self.PHAssetToImage(asset: asset)
 
         uploadImagesToStorage(fileName , imageToSend) { (url, error) in
             
             if let error = error {
-                
                 print(error.localizedDescription)
                 return
             }
-            guard let url = url else { return }
-            print(url.absoluteString)
+            guard url != nil else { return }
+            
+            try! realm.write {
+                realm.add(LocalGallery(UUID().uuidString, fileName))
+            }
+            
         }
     }
     
@@ -166,7 +179,6 @@ final class MediaManager: NSObject {
                 if error != nil{
                     print(error?.localizedDescription ?? "")
                 }
-                print("metadata \(String(describing: metadata))")
             }
             
         }catch{
@@ -178,8 +190,7 @@ final class MediaManager: NSObject {
     func uploadImagesToStorage(_ fileName: String, _ image: UIImage, completion: @escaping (_ imageUrl: URL?, _ error: Error?) -> Void) {
         
         let fileDirectory = "Gallery/" + "_\(User.currentId)/" + "\(fileName)"
-        print("fileDirectory \(fileDirectory)")
-        
+                
         let storageRef = storage.reference(forURL: kFILEREFRENCE).child(fileDirectory)
 
         if let uploadData = image.jpegData(compressionQuality: 0.1) {

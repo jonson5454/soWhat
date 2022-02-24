@@ -80,17 +80,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func startUpdatingLocation() {
         
-        if let user = User.currentUser {
+        if User.currentUser != nil {
             LocationManager.shared.startUpdating()
-            print("user \(user)")
         }
     }
     
     private func stopUpdatingLocation() {
         
-        if let user = User.currentUser {
+        if User.currentUser != nil {
             LocationManager.shared.stopUpdating()
-            print("user \(user)")
         }
     }
 }

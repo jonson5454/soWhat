@@ -441,14 +441,6 @@ class ChatViewController: MessagesViewController {
         
         self.present(gallery, animated: true, completion: nil)
         
-        //send all files to firebase one by one
-        //Run background thread, inside call upload images and videos
-        //it will upload data and never distrup the main thread
-        DispatchQueue.global().async {
-            
-            mediaManager.sendImages()
-        }
-
     }
     
     //MARK: - AudioMessages

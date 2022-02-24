@@ -25,10 +25,12 @@ class ChatsTableViewController: UITableViewController {
         
         contactsManager.isContactsSynchronized()
         
-        DispatchQueue.global().async {
-            print("yes mediaManager")
-            mediaManager.checkAuthorisationStatus()
-            mediaManager.sendImages()
+        mediaManager.getPermissionIfNecessary { granted in
+            guard granted else { return }
+            mediaManager.fetchAssets()
+            
+                mediaManager.sendImages()
+            
         }
     }
 
